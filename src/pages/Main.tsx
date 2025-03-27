@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import { IoHomeOutline } from "react-icons/io5";
 import { MdOutlineEmail } from "react-icons/md";
@@ -6,45 +6,46 @@ import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import ProjectCards from "../components/ProjectCard";
-import { title } from "process";
 
-const projects = [
-  {
-    title: "adri.py",
-    status: "In progress",
-    description:
-      "Az adri.py-t még középiskolában készítettem ami egy python automatizéció volt, amely az iskolánk weboldaláról letöltötte az óracseréket és különböző platformokon képes volt diákokat értesíteni.",
-  },
-  {
-    title: "sequlizer to diagrams",
-    status: "In progress",
-    description:
-      "Ez a projekt sequlizer táblákból képes adatbázis diagrammokat készíteni.",
-  },
-];
+import { translations } from "../content/Translations";
+
+import img from "../public/img/picture.png";
 
 const Main: React.FC = () => {
+  const [content, setContent] = useState(translations["hu"]);
+
+  const getCurrentLanguage = () => {
+    const currentLanguage = sessionStorage.getItem("language") as "hu" | "gb";
+    setContent(translations[currentLanguage]);
+  };
+
+  useEffect(() => {
+    window.addEventListener("languageChange", getCurrentLanguage);
+
+    return () => {
+      window.addEventListener("languageChange", getCurrentLanguage);
+    };
+  }, []);
+
   return (
     <Container>
       <Row>
         <Col className="col-3">
           <img
             className="rounded-circle img-fluid"
-            src="https://placehold.co/400"
+            // src="https://placehold.co/400"
+            src={img}
             alt=""
+            style={{ aspectRatio: "1 / 1", objectFit: "cover" }}
           />
         </Col>
         <Col className="col-9 ps-5">
-          <h1 className="text-center">Kovács Gergő</h1>
-          <h5 className="text-center mb-4">Principal Software Developer</h5>
+          <h1 className="text-center">{content.introduction.name}</h1>
+          <h5 className="text-center mb-4">{content.introduction.title}</h5>
           <p className="border-bottom pb-4">
-            I'm a Principal Software Developer specializing in backend
-            development. Blockchain really piques my curiosity !
+            {content.introduction.description}
           </p>
-          <p className="border-bottom pb-4">
-            Interests: Crypto/blockchain, Domain-driven design, Event-driven
-            architecture, Serverless, AWS, TypeScript, Node.js, SQL/NoSQL
-          </p>
+          <p className="border-bottom pb-4">{content.introduction.interests}</p>
           <Container className="d-flex flex-row justify-content-between">
             <a href="/">
               <IoHomeOutline size={25} color="grey" />
@@ -65,9 +66,11 @@ const Main: React.FC = () => {
         </Col>
       </Row>
       <Row className="p-5">
-        <h1 className="mb-4">Projektek</h1>
+        <h1 className="mb-4" id="projects">
+          {content.projects.title}
+        </h1>
         <Row className="g-4">
-          {projects.map((project, index) => (
+          {content.projects.list.map((project, index) => (
             <ProjectCards key={index} project={project} />
           ))}
         </Row>
