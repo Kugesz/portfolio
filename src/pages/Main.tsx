@@ -2,11 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import { IoHomeOutline } from "react-icons/io5";
 import { MdOutlineEmail } from "react-icons/md";
-import { FaGithub } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 import ProjectCards from "../components/ProjectCard";
-
 import { translations } from "../content/Translations";
 
 import img from "../public/img/picture.png";
@@ -23,30 +20,40 @@ const Main: React.FC = () => {
     window.addEventListener("languageChange", getCurrentLanguage);
 
     return () => {
-      window.addEventListener("languageChange", getCurrentLanguage);
+      window.removeEventListener("languageChange", getCurrentLanguage);
     };
   }, []);
 
   return (
-    <Container>
-      <Row>
-        <Col className="col-3">
+    <Container className="py-4">
+      {/* Profile Section */}
+      <Row className="align-items-center text-center text-md-start">
+        <Col
+          xs={12}
+          md={4}
+          lg={3}
+          className="d-flex justify-content-center mb-4 mb-md-0"
+        >
           <img
             className="rounded-circle img-fluid"
-            // src="https://placehold.co/400"
             src={img}
-            alt=""
-            style={{ aspectRatio: "1 / 1", objectFit: "cover" }}
+            alt="Profile"
+            style={{
+              maxWidth: "200px",
+              aspectRatio: "1 / 1",
+              objectFit: "cover",
+            }}
           />
         </Col>
-        <Col className="col-9 ps-5">
+        <Col xs={12} md={8} lg={9} className="ps-md-5">
           <h1 className="text-center">{content.introduction.name}</h1>
           <h5 className="text-center mb-4">{content.introduction.title}</h5>
-          <p className="border-bottom pb-4">
+          <p className="border-bottom pb-3">
             {content.introduction.description}
           </p>
-          <p className="border-bottom pb-4">{content.introduction.interests}</p>
-          <Container className="d-flex flex-row justify-content-between">
+          <p className="border-bottom pb-3">{content.introduction.interests}</p>
+          {/* Social Links */}
+          <Container className="d-flex justify-content-center justify-content-md-around gap-3">
             <a href="/">
               <IoHomeOutline size={25} color="grey" />
             </a>
@@ -65,15 +72,21 @@ const Main: React.FC = () => {
           </Container>
         </Col>
       </Row>
-      <Row className="p-5">
-        <h1 className="mb-4" id="projects">
-          {content.projects.title}
-        </h1>
-        <Row className="g-4">
-          {content.projects.list.map((project, index) => (
-            <ProjectCards key={index} project={project} />
-          ))}
-        </Row>
+
+      {/* Projects Section */}
+      <Row className="mt-5">
+        <Col>
+          <h1 className="mb-4 text-center text-md-start" id="projects">
+            {content.projects.title}
+          </h1>
+        </Col>
+      </Row>
+      <Row className="g-4">
+        {content.projects.list.map((project, index) => (
+          <Col xs={12} sm={6} md={4} lg={3} key={index}>
+            <ProjectCards project={project} />
+          </Col>
+        ))}
       </Row>
     </Container>
   );

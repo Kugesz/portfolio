@@ -7,7 +7,7 @@ interface ProjectCardsProps {
 
 const ProjectCards: React.FC<ProjectCardsProps> = ({ project }) => {
   return (
-    <Col md={4}>
+    <Col>
       <Card className="p-3">
         <Row className="d-flex justify-content-between">
           <Card.Title className="border-bottom pb-2 align-items-center d-flex">
