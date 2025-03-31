@@ -48,6 +48,9 @@ export const translations = {
         },
       ],
     },
+    contact: {
+      title: "Contact",
+    },
   },
   hu: {
     introduction: {
@@ -79,6 +82,9 @@ export const translations = {
             "GDB Logistics volt a technikumi viszgaremekemhez készített softver. Ez a projekt egy teljesen felépített backend-el, asztali web és mobil alkalmazással.",
         },
       ],
+    },
+    contact: {
+      title: "Kapcsolat",
     },
   },
 };
