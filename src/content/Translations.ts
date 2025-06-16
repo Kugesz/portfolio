@@ -29,6 +29,18 @@ export const translations = {
       title: "Projects",
       list: [
         {
+          title: "GDB Logistics",
+          status: "Finished",
+          description:
+            "GDB Logistics was a project for my final exam for my technikusi vizsga. This project was a complete company software with backend a desktop web and mobile app.",
+        },
+        {
+          title: "Exclusive 3D",
+          status: "In progress",
+          description:
+            "Exclusive 3D is a project I am working on with a friend. My main task here was to create a dashboard and backend that automates the 3D printing processes.",
+        },
+        {
           title: "adri.py",
           status: "In progress",
           description:
@@ -39,12 +51,6 @@ export const translations = {
           status: "In progress",
           description:
             "This project can generate database diagrams from Sequelize tables.",
-        },
-        {
-          title: "GDB Logistics",
-          status: "In progress",
-          description:
-            "GDB Logistics was a project for my final exam for my technikusi vizsga. This project was a complete company software with backend a desktop web and mobile app.",
         },
       ],
     },
@@ -64,6 +70,18 @@ export const translations = {
       title: "Projektek",
       list: [
         {
+          title: "GDB Logistics",
+          status: "Finished",
+          description:
+            "GDB Logistics volt a technikumi viszgaremekemhez készített softver. Ez a projekt egy teljesen felépített backend-el, asztali web és mobil alkalmazással.",
+        },
+        {
+          title: "Exclusive 3D",
+          status: "In progress",
+          description:
+            "Az Exclusive 3D egy olyan projekt, amelyet a barátommal közösen készítünk. Itt a fő feladatom egy dashboard és backend elkészítése volt ami automatizálja a 3D nyomtatási folyamatokat.",
+        },
+        {
           title: "adri.py",
           status: "In progress",
           description:
@@ -74,12 +92,6 @@ export const translations = {
           status: "In progress",
           description:
             "Ez a projekt sequlizer táblákból képes adatbázis diagrammokat készíteni.",
-        },
-        {
-          title: "GDB Logistics",
-          status: "In progress",
-          description:
-            "GDB Logistics volt a technikumi viszgaremekemhez készített softver. Ez a projekt egy teljesen felépített backend-el, asztali web és mobil alkalmazással.",
         },
       ],
     },
