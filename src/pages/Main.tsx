@@ -57,7 +57,7 @@ const Main: React.FC = () => {
             <a href="/">
               <IoHomeOutline size={25} color="grey" />
             </a>
-            <a href="">
+            <a href="mailto:kovacsgergo.algyo@gmail.com">
               <MdOutlineEmail size={25} color="grey" />
             </a>
             <a href="https://github.com/Kugesz">
