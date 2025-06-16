@@ -32,7 +32,7 @@ const Navigation: React.FC = () => {
         <Navbar.Collapse id="navbar-nav">
           <Nav className="ms-auto align-items-center">
             <Nav.Link href="#projects">{content.projects}</Nav.Link>
-            <Nav.Link href="/contact">{content.contact}</Nav.Link>
+            <Nav.Link href="#contact">{content.contact}</Nav.Link>
 
             {/* Portfolio Download */}
             <Nav.Link href={"/" + content.fileName} download="portfolio.pdf">
