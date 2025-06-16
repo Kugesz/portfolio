@@ -3,6 +3,8 @@ import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
 import Navigation from "./components/Navigation";
 import Main from "./pages/Main";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import ProjectPage from "./pages/ProjectPage";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -10,7 +12,12 @@ const root = ReactDOM.createRoot(
 root.render(
   <>
     <Navigation />
-    <Main />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/project/:id" element={<ProjectPage />} />
+      </Routes>
+    </BrowserRouter>
   </>
 );
 
