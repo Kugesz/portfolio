@@ -1,14 +1,16 @@
-import React from "react";
+import React, { use } from "react";
 import { Badge, Button, Card, Col, Row } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 interface ProjectCardsProps {
-  project: { title: string; status: string; description: string };
+  project: { id: number; title: string; status: string; description: string };
 }
 
 const ProjectCards: React.FC<ProjectCardsProps> = ({ project }) => {
+  const navigate = useNavigate();
   return (
-    <Col>
-      <Card className="p-3">
+    <Col className="h-100">
+      <Card className="p-3 h-100">
         <Row className="d-flex justify-content-between">
           <Card.Title className="border-bottom pb-2 align-items-center d-flex">
             {project.title}{" "}
@@ -22,8 +24,12 @@ const ProjectCards: React.FC<ProjectCardsProps> = ({ project }) => {
           </Card.Title>
         </Row>
         <Card.Text>{project.description}</Card.Text>
-        <Row className="d-flex justify-content-center">
-          <Button className="col-4" variant="outline-secondary">
+        <Row className="d-flex justify-content-center mt-auto">
+          <Button
+            className="col-5"
+            variant="outline-secondary"
+            onClick={() => navigate(`/project/${project.id}`)}
+          >
             Read more
           </Button>
         </Row>
