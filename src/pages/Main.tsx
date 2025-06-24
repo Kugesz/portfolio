@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, Card, Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import { IoHomeOutline } from "react-icons/io5";
 import { MdOutlineEmail } from "react-icons/md";
 import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
